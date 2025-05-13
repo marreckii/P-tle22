@@ -1,31 +1,63 @@
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-
-        boolean shouldContinue = true;
+        Random losowanie = new Random();
         Scanner scanner = new Scanner(System.in);
-        int i = 1;
 
-        while (shouldContinue && i <= 100) {
-            System.out.println("Lecimy dalej?");
-            String answer = scanner.nextLine();
+        int wylosowana = losowanie.nextInt(11);
+        int zgadnietalicz;
+        do {
+            System.out.println("Zgadnij liczbę 1-10:");
+            zgadnietalicz = scanner.nextInt();
 
-            if (answer.equals("tak")) {
-                shouldContinue = true;
-                System.out.println(i++);
-
-            } else if (answer.equals("nie")) {
-                shouldContinue = false;
+            if (wylosowana != zgadnietalicz) {
+                System.out.println("Nie zgadłeś, spróbuj znowu");
             }
-        }
-//        Tutaj musimy wpisac tak zeby szlo do 100
+        } while (wylosowana != zgadnietalicz);
+        System.out.println("Brawo! Zgadłeś liczbę: " +zgadnietalicz);
 
-            for (int i = 0; i <= 100; i ++) {
-                System.out.println(i);
 
-//        Tutaj jest zwykła pętla ktora wpisuje od 1-100.
+
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+//        boolean shouldContinue = true;
+//        Scanner scanner = new Scanner(System.in);
+//        int i = 1;
+//
+//        while (shouldContinue && i <= 100) {
+//            System.out.println("Lecimy dalej?");
+//            String answer = scanner.nextLine();
+//
+//            if (answer.equals("tak")) {
+//                shouldContinue = true;
+//                System.out.println(i++);
+//
+//            } else if (answer.equals("nie")) {
+//                shouldContinue = false;
+//            }
+//        }
+//        Tutaj musimy wpisac tak zeby szlo do 100
+//
+//            for (int i = 0; i <= 100; i ++) {
+//                System.out.println(i);
+
+//        Tutaj jest zwykła pętla ktora wpisuje od 1-100.
+//    }
+//}
 
 
