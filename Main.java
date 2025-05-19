@@ -3,61 +3,54 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Random losowanie = new Random();
-        Scanner scanner = new Scanner(System.in);
+        guessNumber();
+        askToContinue();
+        printNumbers();
+    }
 
-        int wylosowana = losowanie.nextInt(11);
-        int zgadnietalicz;
-        do {
-            System.out.println("Zgadnij liczbę 1-10:");
-            zgadnietalicz = scanner.nextInt();
 
-            if (wylosowana != zgadnietalicz) {
-                System.out.println("Nie zgadłeś, spróbuj znowu");
+    public static void guessNumber () {
+            Random draw = new Random();
+            Scanner scanner = new Scanner(System.in);
+
+            int drawn = draw.nextInt(11);
+            int guessednumber;
+            do {
+                System.out.println("Guess the number 1-10:");
+                guessednumber = scanner.nextInt();
+
+                if (drawn != guessednumber) {
+                    System.out.println("You haven't guessed, try again");
+                }
+            } while (drawn != guessednumber);
+            System.out.println("Bravo! You guessed the number: " + guessednumber);
+        }
+        public static void askToContinue () {
+            boolean shouldContinue = true;
+            Scanner scanner = new Scanner(System.in);
+            int i = 1;
+//            I gave below us 10 so that you don't type a lot as you check
+            while (shouldContinue && i <= 100) {
+                System.out.println("Next?");
+                String answer = scanner.nextLine();
+
+                if (answer.equals("yes")) {
+                    shouldContinue = true;
+                    System.out.println(i++);
+
+                } else if (answer.equals("no")) {
+                    shouldContinue = false;
+                }
             }
-        } while (wylosowana != zgadnietalicz);
-        System.out.println("Brawo! Zgadłeś liczbę: " +zgadnietalicz);
-
-
+        }
+            public static void printNumbers () {
+                for (int i = 0; i <= 100; i++) {
+                    System.out.println(i);
+                }
+            }
 
     }
-}
 
 
-
-
-
-
-
-
-
-
-
-
-
-//        boolean shouldContinue = true;
-//        Scanner scanner = new Scanner(System.in);
-//        int i = 1;
-//
-//        while (shouldContinue && i <= 100) {
-//            System.out.println("Lecimy dalej?");
-//            String answer = scanner.nextLine();
-//
-//            if (answer.equals("tak")) {
-//                shouldContinue = true;
-//                System.out.println(i++);
-//
-//            } else if (answer.equals("nie")) {
-//                shouldContinue = false;
-//            }
-//        }
-//        Tutaj musimy wpisac tak zeby szlo do 100
-//
-//            for (int i = 0; i <= 100; i ++) {
-//                System.out.println(i);
-
-//        Tutaj jest zwykła pętla ktora wpisuje od 1-100.
-//    }
-//}
 
 
