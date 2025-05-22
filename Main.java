@@ -14,16 +14,17 @@ public class Main {
             Scanner scanner = new Scanner(System.in);
 
             int drawn = draw.nextInt(11);
-            int guessednumber;
+            int guessedNumber;
+
             do {
                 System.out.println("Guess the number 1-10:");
-                guessednumber = scanner.nextInt();
+                guessedNumber = scanner.nextInt();
 
-                if (drawn != guessednumber) {
+                if (drawn != guessedNumber) {
                     System.out.println("You haven't guessed, try again");
                 }
-            } while (drawn != guessednumber);
-            System.out.println("Bravo! You guessed the number: " + guessednumber);
+            } while (drawn != guessedNumber);
+            System.out.println("Bravo! You guessed the number: " + guessedNumber);
         }
         public static void askToContinue () {
             boolean shouldContinue = true;
