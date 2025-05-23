@@ -1,31 +1,58 @@
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        guessNumber();
+        askToContinue();
+        printNumbers();
+    }
 
-        boolean shouldContinue = true;
-        Scanner scanner = new Scanner(System.in);
-        int i = 1;
 
-        while (shouldContinue && i <= 100) {
-            System.out.println("Lecimy dalej?");
-            String answer = scanner.nextLine();
+    public static void guessNumber () {
+            Random draw = new Random();
+            Scanner scanner = new Scanner(System.in);
 
-            if (answer.equals("tak")) {
-                shouldContinue = true;
-                System.out.println(i++);
+            int drawn = draw.nextInt(11);
+            int guessedNumber;
 
-            } else if (answer.equals("nie")) {
-                shouldContinue = false;
+            do {
+                System.out.println("Guess the number 1-10:");
+                guessedNumber = scanner.nextInt();
+
+                if (drawn != guessedNumber) {
+                    System.out.println("You haven't guessed, try again");
+                }
+            } while (drawn != guessedNumber);
+            System.out.println("Bravo! You guessed the number: " + guessedNumber);
+        }
+        public static void askToContinue () {
+            boolean shouldContinue = true;
+            Scanner scanner = new Scanner(System.in);
+            int i = 1;
+//            I gave below us 10 so that you don't type a lot as you check
+            while (shouldContinue && i <= 100) {
+                System.out.println("Next?");
+                String answer = scanner.nextLine();
+
+                if (answer.equals("yes")) {
+                    shouldContinue = true;
+                    System.out.println(i++);
+
+                } else if (answer.equals("no")) {
+                    shouldContinue = false;
+                }
             }
         }
-//        Tutaj musimy wpisac tak zeby szlo do 100
+            public static void printNumbers () {
+                for (int i = 0; i <= 100; i++) {
+                    System.out.println(i);
+                }
+            }
 
-            for (int i = 0; i <= 100; i ++) {
-                System.out.println(i);
-
-//        Tutaj jest zwykła pętla ktora wpisuje od 1-100.
     }
-}
+//    e
+
+
 
 
